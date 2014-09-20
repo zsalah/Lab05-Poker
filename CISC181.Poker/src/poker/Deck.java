@@ -4,22 +4,28 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
 
-
 public class Deck {
-	private ArrayList<Card> cards; // Attribute of a Deck
+	private ArrayList<Card> cards;
 
 	public Deck() {
-		// Constructs a deck of 52 cards and randomizes their order
+
+		//	Create an ArrayList of Cards, add each card
 		ArrayList<Card> MakingDeck = new ArrayList<Card>();
 		for (short i = 0; i <= 3; i++) {
+			eSuit SuitValue = eSuit.values()[i];			
 			for (short j = 0; j <= 12; j++) {
-				Card ToAdd = new Card((short) i, (short) j, j + 13 * i);
-				MakingDeck.add(ToAdd);
+				eRank RankValue = eRank.values()[j];				
+				Card NewCard = new Card(SuitValue,RankValue);
+				MakingDeck.add(NewCard);
 			}
 		}
-		// Shuffles the cards order
+		
+		//	Set the instance variable
 		cards = MakingDeck;
-		Collections.shuffle(cards, new Random());
+		
+		//	Shuffle the cards
+		Collections.shuffle(cards);
+		
 	}
 
 	public Card drawFromDeck() {

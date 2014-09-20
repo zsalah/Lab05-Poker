@@ -1,3 +1,4 @@
+/*
 package poker;
 
 import javax.swing.*;
@@ -206,3 +207,5 @@ public class Play extends JApplet {
 		frame.setVisible(true);
 	}
 }
+
+*/

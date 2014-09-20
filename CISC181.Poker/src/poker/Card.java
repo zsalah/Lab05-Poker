@@ -1,34 +1,57 @@
 package poker;
 
-public class Card {
-	private short CardSuit; // Attribute of a Card
-	private short CardRank; // Attribute of a Card
-	private int CardNumber; // Attribute of a Card
-	private static String[] Suits = { "Spades", "Hearts", "Diamonds", "Clubs" };
-	private static String[] Ranks = { "Ace", "2", "3", "4", "5", "6", "7", "8",
-			"9", "10", "Jack", "Queen", "King" };
+import java.util.Comparator;
 
-	public Card(short suit, short rank, int number) {
-		// Constructor for a card. Card takes a number for suit, a number for
-		// rank and a number for number
-		CardSuit = suit; // Set the card's suit parameter to the suit
-		CardRank = rank; // Set the card's rank parameter to the rank
-		CardNumber = number; // Set the card's number (1-52)
+public final class Card {
+	private eSuit Suit;
+	private eRank Rank;
+	
+	/**
+	 * Keep the no-arg constructor private.  I don't want 'Card' created without attributes.
+	 */
+	private Card()
+	{
+	}
+	
+	/**
+	 * Create a new card of a given rank and suit.
+	 * @param suit
+	 * @param rank
+	 */
+	public Card(eSuit suit, eRank rank) {
+		Suit = suit; 
+		Rank = rank; 
 	}
 
-	public short getRank() {
-		// Method returns the index of the card's rank (Ace = 0)
-		return CardRank;
+	/**
+	 * Getter for Rank
+	 * @return
+	 */
+	public eRank getRank() {
+		return this.Rank;
 	}
 
-	public short getSuit() {
-		// Method returns the index of the card's suit (Spades = 0)
-		return CardSuit;
+	/**
+	 * Getter for Suit
+	 * @return
+	 */
+	public eSuit getSuit() {
+		return this.Suit;
 	}
 
-	public int getNumber() {
-		// Method returns the card's number
-		return CardNumber;
-	}
+	/**
+	 * CardRank Comparator is used for sorting the collection by rank
+	 */
+	public static Comparator<Card> CardRank = new Comparator<Card>() {
+
+		public int compare(Card c1, Card c2) {
+
+		   int Cno1 = c1.getRank().getRank();
+		   int Cno2 = c2.getRank().getRank();
+
+		   /*For descending order*/
+		   return Cno2 - Cno1;
+
+	   }};
 
 }
