@@ -57,13 +57,12 @@ public class Hand {
 		// Evaluates if the hand is a flush and/or straight then figures out
 		// the hand's strength attributes
 
-		ArrayList<Card> Sorted;
 
 		// Sort the cards!
 		Collections.sort(cards, Card.CardRank);
 
 		// Ace Evaluation
-		if (cards.get(4).getRank() == eRank.ACE) {
+		if (cards.get(0).getRank() == eRank.ACE) {
 			Ace = true;
 		}
 
@@ -80,16 +79,16 @@ public class Hand {
 		// Straight Evaluation
 		if (Ace) {
 			// Looks for Ace, King, Queen, Jack, 10
-			if (cards.get(0).getRank() == eRank.TEN
-					&& cards.get(1).getRank() == eRank.JACK
+			if (cards.get(1).getRank() == eRank.KING
 					&& cards.get(2).getRank() == eRank.QUEEN
-					&& cards.get(3).getRank() == eRank.KING) {
+					&& cards.get(3).getRank() == eRank.JACK
+					&& cards.get(4).getRank() == eRank.TEN) {
 				Straight = true;
 				// Looks for Ace, 2, 3, 4, 5
-			} else if (cards.get(0).getRank() == eRank.TWO
-					&& cards.get(1).getRank() == eRank.THREE
+			} else if (cards.get(4).getRank() == eRank.TWO
+					&& cards.get(3).getRank() == eRank.THREE
 					&& cards.get(2).getRank() == eRank.FOUR
-					&& cards.get(3).getRank() == eRank.FIVE) {
+					&& cards.get(1).getRank() == eRank.FIVE) {
 				Straight = true;
 			} else {
 				Straight = false;
@@ -110,7 +109,7 @@ public class Hand {
 
 		// Evaluates the hand type
 		if (Straight == true && Flush == true
-				&& cards.get(4).getRank() == eRank.ACE && Ace) {
+				&& cards.get(4).getRank() == eRank.TEN && Ace) {
 			ScoreHand(eHandStrength.RoyalFlush, 0, 0, 0);
 		}
 
@@ -236,7 +235,6 @@ public class Hand {
 				return result;
 			}
 			
-
 			result = h2.LoHand = h1.LoHand;
 			if (result != 0) {
 				return result;
