@@ -13,7 +13,7 @@ public class PlayHand {
 
 
 
-		for (int gCount = 0; gCount <= 2; gCount++) {
+		for (int gCount = 0; gCount <= 100000; gCount++) {
 			ArrayList<Hand> Hands = new ArrayList<Hand>();
 			Deck d = new Deck();
 			
