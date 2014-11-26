@@ -6,8 +6,11 @@
     <class name="poker.Pokerresults" table="POKERRESULTS">
         <id name="resultid" type="int">
             <column name="RESULTID" precision="9" scale="0" />
-            <generator class="assigned" />
+           <generator class="sequence">
+				<param name="sequence">SEQ_HAND</param>
+			</generator>
         </id>
+       
         <property name="handstrength" type="int">
             <column name="HANDSTRENGTH" precision="9" scale="0" not-null="true" />
         </property>

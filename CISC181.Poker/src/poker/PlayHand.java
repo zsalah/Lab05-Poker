@@ -18,7 +18,11 @@ public class PlayHand {
 			Deck d = new Deck();
 			
 			Hand h = new Hand(d);
+			
+			h.EvalHand();
+			
 			Collections.sort(Hands, Hand.HandRank);
+			
 			
 			Session session = HibernateUtil.getSessionFactory().openSession();
 			 
