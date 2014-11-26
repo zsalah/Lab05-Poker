@@ -32,6 +32,7 @@ public class PlayHand {
 			
 			
 			int resultid = (Integer) session.save(presults);
+			
 			System.out.println(resultid);
 			
 			session.getTransaction().commit();
